@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://www.dejavu.moe/imgs/posts/hexo-blog/5.webp">
 <meta property="og:image" content="https://www.dejavu.moe/imgs/posts/hexo-blog/6.webp">
 <meta property="article:published_time" content="2021-07-31T16:10:30.000Z">
-<meta property="article:modified_time" content="2021-11-28T07:26:46.596Z">
+<meta property="article:modified_time" content="2021-11-28T08:55:14.514Z">
 <meta property="article:author" content="Mr.Xiao">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Blog">
@@ -245,241 +245,117 @@
             <h1 style="display: none">Hexo 搭建个人博客教程</h1>
             
             <div class="markdown-body">
-              <h1 id="Hexo-搭建个人博客教程"><a href="#Hexo-搭建个人博客教程" class="headerlink" title="Hexo 搭建个人博客教程"></a>Hexo 搭建个人博客教程</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%89%8D%E8%A8%80" title="前言"></a>前言</h2><p>在开始前，请思考下：现在已经是 2021 年了，你真的需要搭建并花费大量时间去维护自己的个人博客吗？</p>
+              <h1 id="Hexo-搭建个人博客教程"><a href="#Hexo-搭建个人博客教程" class="headerlink" title="Hexo 搭建个人博客教程"></a>Hexo 搭建个人博客教程</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始前，请思考下：现在已经是 2021 年了，你真的需要搭建并花费大量时间去维护自己的个人博客吗？</p>
 <p>在十多年前，互联网刚开始发展的时候，『博客』是很流行的东西，近些年伴随着移动互联网的高速发展，个人博客逐渐式微已经是不争的事实。按照『马太效应』，这样的现状只会愈加严重。十年前的互联网环境和现在互联网环境有着天壤之别，微博、微信、Twitter、Instagram、Tikotok、Facebook……正好满足了现代人对『快餐文化』、『碎片化』信息的需求，相比这些「微平台」的发言成本和门槛，个人博客门槛要相对高得多。</p>
 <p>在中国大陆地区，如果你要使用中国大陆内的网络服务，你需要进行中国工业化信息部的 ICP 备案，在部分地区公安备案也是必须的（如：上海市），你的个人网站的内容和言论会收到网络审查和监督（在「微平台」亦然如此），浪费了很多时间和精力，还不能『好好说话』，为什么不继续用这些「微平台」呢？</p>
 <p>种种因素，造就个人博客逐渐没落和灭亡，但如果在考虑了以上因素你仍然希望拥有一个自己的博客，那是时候开始了！</p>
 <p>作为基础教程，本文以本地搭建 Hexo 环境生成静态文件推送到 GitHub 仓库并使用 GitHub Pages 托管为例，做一个引子，了解了基本功能，后续可以更换自己喜欢的主题，使用其他平台托管网站等等~</p>
-<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Hexo-%E7%AE%80%E4%BB%8B" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一款基于 Node.js 快速、简洁且高效的博客框架，通过 Node.js 将本地的每一篇 Markdown 文章渲染成 html 网页文件，这样我们的博客就是纯静态的网页，如果我们需要修改文章直接修改对应的 Markdown 文件再重新生成静态网页就好了。Node.js 默认的包管理器是 npm ，<a target="_blank" rel="noopener" href="https://www.dejavu.moe/">博主</a> 建议使用 yarn 做为 Hexo 的包管理器，当然根据自己喜好即可。如果使用 Git 管理文章的话，就不用担心文章丢失了，也可以随意回滚版本，这属于 Git 的范畴，本文不做深入讨论</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C" title="准备工作"></a>准备工作</h2><p>假设你现在有一台计算机，Windows、Linux 或者 macOS 都可以，首先我们需要安装 Node.js、Git、npm、yarn 这些 Hexo 需要的工具</p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Windows" title="Windows"></a>Windows</h3><h4 id="Scoop-安装"><a href="#Scoop-安装" class="headerlink" title="Scoop 安装"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Scoop-%E5%AE%89%E8%A3%85" title="Scoop 安装"></a>Scoop 安装</h4><p>在 Windows 下建议使用 Scoop 来安装环境，可以大幅度降低配置成本，👉 详见 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/windows-scoop/">在 Windows 下使用 Scoop 管理软件</a></p>
+<h2 id="Hexo-简介"><a href="#Hexo-简介" class="headerlink" title="Hexo 简介"></a>Hexo 简介</h2><p>Hexo 是一款基于 Node.js 快速、简洁且高效的博客框架，通过 Node.js 将本地的每一篇 Markdown 文章渲染成 html 网页文件，这样我们的博客就是纯静态的网页，如果我们需要修改文章直接修改对应的 Markdown 文件再重新生成静态网页就好了。Node.js 默认的包管理器是 npm ，<a target="_blank" rel="noopener" href="https://www.dejavu.moe/">博主</a> 建议使用 yarn 做为 Hexo 的包管理器，当然根据自己喜好即可。如果使用 Git 管理文章的话，就不用担心文章丢失了，也可以随意回滚版本，这属于 Git 的范畴，本文不做深入讨论</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>假设你现在有一台计算机，Windows、Linux 或者 macOS 都可以，首先我们需要安装 Node.js、Git、npm、yarn 这些 Hexo 需要的工具</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><h4 id="Scoop-安装"><a href="#Scoop-安装" class="headerlink" title="Scoop 安装"></a>Scoop 安装</h4><p>在 Windows 下建议使用 Scoop 来安装环境，可以大幅度降低配置成本，👉 详见 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/windows-scoop/">在 Windows 下使用 Scoop 管理软件</a></p>
 <p>按照上面安装好 scoop 后，准备 Hexo 所需环境很简单</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2</th>
-<th># 安装 nodejs yarn git   <br>$ scoop install nodejs-lts git yarn</th>
-</tr>
-</thead>
-</table>
-<p>否则，请按照 👇 下面「手动安装环境」步骤安装</p>
-<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85" title="手动安装"></a>手动安装</h4><p>对于 Windows，安装 Node.js 会一起安装 npm，yarn 可以通过 npm 安装也可以直接下载 yarn 的安装程序，安装过程如下：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-comment"># 安装 nodejs yarn git </span><br>$ <span class="hljs-keyword">scoop </span><span class="hljs-keyword">install </span>nodejs-lts git yarn<br></code></pre></td></tr></table></figure>
+
+<p>否则，请按照 👇 下面「手动安装环境」步骤安装</p>
+<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>对于 Windows，安装 Node.js 会一起安装 npm，yarn 可以通过 npm 安装也可以直接下载 yarn 的安装程序，安装过程如下：</p>
 <blockquote>
-<p>安装 Node.js，建议 LTS 版，🔗 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官方下载</a></p>
+<p>安装 Node.js，建议 LTS 版，🔗 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官方下载</a></p>
 </blockquote>
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/1.webp" srcset="/img/loading.gif" lazyload alt="Windows Nodejs"></p>
 <blockquote>
-<p>安装 Git，🔗 <a target="_blank" rel="noopener" href="https://git-scm.com/">官方下载</a></p>
+<p>安装 Git，🔗 <a target="_blank" rel="noopener" href="https://git-scm.com/">官方下载</a></p>
 </blockquote>
-<p>下载后直接一路 <code>Next</code> 安装即可</p>
+<p>下载后直接一路 <code>Next</code> 安装即可</p>
 <blockquote>
-<p>安装 yarn，🔗 <a target="_blank" rel="noopener" href="https://classic.yarnpkg.com/latest.msi">官方下载</a></p>
+<p>安装 yarn，🔗 <a target="_blank" rel="noopener" href="https://classic.yarnpkg.com/latest.msi">官方下载</a></p>
 </blockquote>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Linux" title="Linux"></a>Linux</h3><p>以常见的 Linux 发行版为例</p>
-<h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Debian-Ubuntu" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><table>
-<thead>
-<tr>
-<th>1  <br>2</th>
-<th>$ sudo apt update  <br>$ sudo apt install nodejs npm git yarn</th>
-</tr>
-</thead>
-</table>
-<h4 id="ArchLinux-Manjaro"><a href="#ArchLinux-Manjaro" class="headerlink" title="ArchLinux/Manjaro"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#ArchLinux-Manjaro" title="ArchLinux/Manjaro"></a>ArchLinux/Manjaro</h4><table>
-<thead>
-<tr>
-<th>1  <br>2</th>
-<th>$ sudo pacman -Syy  <br>$ sudo pacman -S nodejs npm git yarn</th>
-</tr>
-</thead>
-</table>
-<h4 id="openSUSE"><a href="#openSUSE" class="headerlink" title="openSUSE"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#openSUSE" title="openSUSE"></a>openSUSE</h4><table>
-<thead>
-<tr>
-<th>1  <br>2</th>
-<th>$ sudo zypper refresh  <br>$ sudo zypper install nodejs npm git yarn</th>
-</tr>
-</thead>
-</table>
-<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#macOS" title="macOS"></a>macOS</h3><p>确保你的 macOS 已经安装了 homebrew，如果没有的话，使用以下命令安装 homebrew：</p>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ /bin/bash -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;">https://raw.GitHubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</a></th>
-</tr>
-</thead>
-</table>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>以常见的 Linux 发行版为例</p>
+<h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>sudo apt update<br><span class="hljs-variable">$ </span>sudo apt install nodejs npm git yarn<br></code></pre></td></tr></table></figure>
+
+<h4 id="ArchLinux-Manjaro"><a href="#ArchLinux-Manjaro" class="headerlink" title="ArchLinux/Manjaro"></a>ArchLinux/Manjaro</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>sudo pacman -Syy<br><span class="hljs-variable">$ </span>sudo pacman -S nodejs npm git yarn<br></code></pre></td></tr></table></figure>
+
+<h4 id="openSUSE"><a href="#openSUSE" class="headerlink" title="openSUSE"></a>openSUSE</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>sudo zypper refresh<br><span class="hljs-variable">$ </span>sudo zypper install nodejs npm git yarn<br></code></pre></td></tr></table></figure>
+
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>确保你的 macOS 已经安装了 homebrew，如果没有的话，使用以下命令安装 homebrew：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ <span class="hljs-regexp">/bin/</span>bash -c <span class="hljs-string">&quot;$(curl -fsSL https://raw.GitHubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></code></pre></td></tr></table></figure>
+
 <p>然后使用 homebrew 安装所需工具：</p>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ brew install git node yarn npm</th>
-</tr>
-</thead>
-</table>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ brew install git <span class="hljs-keyword">node</span> <span class="hljs-title">yarn</span> npm<br></code></pre></td></tr></table></figure>
+
 <p>在你的系统安装好后，在你的 Terminl/Bash 中检查安装是否正确</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4</th>
-<th>$ node -v  <br>$ git –version  <br>$ npm -v  <br>$ yarn -v</th>
-</tr>
-</thead>
-</table>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">$ <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span><br>$ git --<span class="hljs-keyword">version</span><br>$ npm -v<br>$ yarn -v<br></code></pre></td></tr></table></figure>
+
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/2.webp" srcset="/img/loading.gif" lazyload alt="检查安装"></p>
 <p>类似输出正确的版本号，应该安装没有问题了，现在我们本地搭建 Hexo 的环境就好了</p>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%AE%89%E8%A3%85-Hexo" title="安装 Hexo"></a>安装 Hexo</h2><h3 id="全局安装-Hexo"><a href="#全局安装-Hexo" class="headerlink" title="全局安装 Hexo"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85-Hexo" title="全局安装 Hexo"></a>全局安装 Hexo</h3><p>打开系统的 Terminal/Bash，全局安装 Hexo</p>
-<h4 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Windows-1" title="Windows"></a>Windows</h4><table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4</th>
-<th># 如果使用 yarn  <br>$ yarn global add hexo-cli  <br># 或者使用 npm  <br>$ npm install -g hexo-cli</th>
-</tr>
-</thead>
-</table>
-<h4 id="Linux-macOS"><a href="#Linux-macOS" class="headerlink" title="Linux/macOS"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Linux-macOS" title="Linux/macOS"></a>Linux/macOS</h4><table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4</th>
-<th># npm 安装和 yarn 安装二选一即可  <br>$ sudo npm install -g hexo-cli   <br># 或者  <br>$ sudo yarn global add hexo-cli</th>
-</tr>
-</thead>
-</table>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><h3 id="全局安装-Hexo"><a href="#全局安装-Hexo" class="headerlink" title="全局安装 Hexo"></a>全局安装 Hexo</h3><p>打开系统的 Terminal/Bash，全局安装 Hexo</p>
+<h4 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-meta"># 如果使用 yarn</span><br>$ yarn global <span class="hljs-keyword">add</span> hexo-<span class="hljs-keyword">cli</span><br><span class="hljs-meta"># 或者使用 npm</span><br>$ npm install -g hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="Linux-macOS"><a href="#Linux-macOS" class="headerlink" title="Linux/macOS"></a>Linux/macOS</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-meta"># npm 安装和 yarn 安装二选一即可</span><br>$ sudo npm install -g hexo-<span class="hljs-keyword">cli</span> <br><span class="hljs-meta"># 或者</span><br>$ sudo yarn global <span class="hljs-keyword">add</span> hexo-<span class="hljs-keyword">cli</span><br></code></pre></td></tr></table></figure>
+
 <p>现在我们的 Hexo 已经在本地计算机安装好了，下面我们从自己的第一个 Blog 开始</p>
-<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2" title="初始化博客"></a>初始化博客</h3><p>此步骤对于上面的系统应该都是一样的步骤，在你想要存放本地 Blog 源文件的目录打开 Terminal/Bash</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5  <br>6  <br>7  <br>8</th>
-<th># 初始化一个 Hexo 目录  <br>$ hexo init Blog  <br># 进入 Blog 目录  <br>$ cd Blog  <br># 安装依赖，依然是 npm 和 yarn 二选一  <br>$ npm install  <br># 或者  <br>$ yarn install</th>
-</tr>
-</thead>
-</table>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>此步骤对于上面的系统应该都是一样的步骤，在你想要存放本地 Blog 源文件的目录打开 Terminal/Bash</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 初始化一个 Hexo 目录</span><br><span class="hljs-variable">$</span> hexo init Blog<br><span class="hljs-comment"># 进入 Blog 目录</span><br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> Blog<br><span class="hljs-comment"># 安装依赖，依然是 npm 和 yarn 二选一</span><br><span class="hljs-variable">$</span> npm install<br><span class="hljs-comment"># 或者</span><br><span class="hljs-variable">$</span> yarn install<br></code></pre></td></tr></table></figure>
+
 <p>此时 Blog 目录下有类似下面的目录结构</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5  <br>6  <br>7  <br>8  <br>9  <br>10  <br>11  <br>12  <br>13  <br>14  <br>15</th>
-<th>.  <br>├── .GitHub   <br>├── node_modules   # Hexo 所需依赖  <br>├── _config.yml    # Hexo 全局配置文件  <br>├── package.json   # npm软件包及版本信息  <br>├── scaffolds      # 模版文件夹  <br>|   ├── draft.md   # 草稿模板  <br>|   ├── page.md    # 页面模板  <br>|   └── post.md    # 文章模板  <br>├── source         # 资源文件夹  <br>|   ├── _drafts    # 草稿文件夹  <br>|   └── _posts     # 文章文件夹  <br>├── .gitignore     # Git 忽略文件信息  <br>├── _config.[主题名].yml # 主题的配置文件  <br>└── themes         # 主题文件夹</th>
-</tr>
-</thead>
-</table>
-<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88" title="本地预览"></a>本地预览</h3><p>在 Blog 目录打开 Terminal/Bash 使用命令 <code>hexo s -p [端口号]</code> 启动本地预览，默认端口为 <code>4000</code></p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5  <br>6  <br>7</th>
-<th># 以默认端口启动本地预览  <br>$ hexo s  <br># 此时本地预览的网址为 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>  <br>  <br># 以自定义端口启动本地预览，比如 250  <br>$ hexo s -p 250  <br># 此时本地预览的网址为 <a target="_blank" rel="noopener" href="http://localhost:250/">http://localhost:250</a></th>
-</tr>
-</thead>
-</table>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">.<br>├── <span class="hljs-string">.GitHub</span> <br>├── node_modules   <span class="hljs-comment"># Hexo 所需依赖</span><br>├── _config.yml    <span class="hljs-comment"># Hexo 全局配置文件</span><br>├── package.json   <span class="hljs-comment"># npm软件包及版本信息</span><br>├── scaffolds      <span class="hljs-comment"># 模版文件夹</span><br>|   ├── draft.md   <span class="hljs-comment"># 草稿模板</span><br>|   ├── page.md    <span class="hljs-comment"># 页面模板</span><br>|   └── post.md    <span class="hljs-comment"># 文章模板</span><br>├── source         <span class="hljs-comment"># 资源文件夹</span><br>|   ├── _drafts    <span class="hljs-comment"># 草稿文件夹</span><br>|   └── _posts     <span class="hljs-comment"># 文章文件夹</span><br>├── <span class="hljs-string">.gitignore</span>     <span class="hljs-comment"># Git 忽略文件信息</span><br>├── _config.[主题名]<span class="hljs-string">.yml</span> <span class="hljs-comment"># 主题的配置文件</span><br>└── themes         <span class="hljs-comment"># 主题文件夹</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>在 Blog 目录打开 Terminal/Bash 使用命令 <code>hexo s -p [端口号]</code> 启动本地预览，默认端口为 <code>4000</code></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 以默认端口启动本地预览</span><br>$ hexo s<br><span class="hljs-meta"># 此时本地预览的网址为 http://localhost:4000</span><br><br><span class="hljs-meta"># 以自定义端口启动本地预览，比如 250</span><br>$ hexo s -p <span class="hljs-number">250</span><br><span class="hljs-meta"># 此时本地预览的网址为 http://localhost:250</span><br></code></pre></td></tr></table></figure>
+
 <p>现在本地的 Hexo 已经搭建完成了，接下来聊聊将本地生成的 Hexo 静态网页推送到 GitHub 仓库并使用 GitHub Pages 服务托管我们的网站</p>
-<h2 id="GitHub-托管网站"><a href="#GitHub-托管网站" class="headerlink" title="GitHub 托管网站"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#GitHub-%E6%89%98%E7%AE%A1%E7%BD%91%E7%AB%99" title="GitHub 托管网站"></a>GitHub 托管网站</h2><p>首先肯定得有一个 GitHub 账号，没有的话就注册一个，记得别用国内的 QQ 邮箱之流，以后有的坑（这是后话了）</p>
+<h2 id="GitHub-托管网站"><a href="#GitHub-托管网站" class="headerlink" title="GitHub 托管网站"></a>GitHub 托管网站</h2><p>首先肯定得有一个 GitHub 账号，没有的话就注册一个，记得别用国内的 QQ 邮箱之流，以后有的坑（这是后话了）</p>
 <p><strong>连接本地 Git 和 GitHub</strong></p>
 <p>打开本地 Terminal/Bash</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3</th>
-<th>$ git config –global user.name “username”   # username是你的GitHub用户名，注意大小写  <br>$ git config –global user.email “email”     # email是注册 GitHub的邮箱  <br>$ ssh-keygen -t ed25519 -C “email”           # 生成ed25519密钥对，email同上</th>
-</tr>
-</thead>
-</table>
-<p>默认密钥对在用户目录的 <code>.ssh</code> 目录下，在该目录你可以看到 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，使用文本编辑器打开 <code>id_rsa.pub</code> 文件并复制</p>
-<p>打开 GitHub，点击头像的 <code>settings</code> 选项进入设置，在 SSH and GPG keys 中粘贴 <code>id_rsa.pub</code> 内容，并点击 <code>Add SSH key</code></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git config --global user.name <span class="hljs-string">&quot;username&quot;</span>   <span class="hljs-comment"># username是你的GitHub用户名，注意大小写</span><br><span class="hljs-variable">$ </span>git config --global user.email <span class="hljs-string">&quot;email&quot;</span>     <span class="hljs-comment"># email是注册 GitHub的邮箱</span><br><span class="hljs-variable">$ </span>ssh-keygen -t ed25519 -C <span class="hljs-string">&quot;email&quot;</span>           <span class="hljs-comment"># 生成ed25519密钥对，email同上</span><br></code></pre></td></tr></table></figure>
+
+<p>默认密钥对在用户目录的 <code>.ssh</code> 目录下，在该目录你可以看到 <code>id_rsa</code> 和 <code>id_rsa.pub</code> ，使用文本编辑器打开 <code>id_rsa.pub</code> 文件并复制</p>
+<p>打开 GitHub，点击头像的 <code>settings</code> 选项进入设置，在 SSH and GPG keys 中粘贴 <code>id_rsa.pub</code> 内容，并点击 <code>Add SSH key</code></p>
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/3.webp" srcset="/img/loading.gif" lazyload alt="添加GitHub SSH Key"></p>
 <p>回到本地的 Terminal/Bash，输入命令连接 GitHub</p>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a></th>
-</tr>
-</thead>
-</table>
-<p>出现一个 hostname 提示输入 <code>yes</code> 回车，类似下面的提示就代表没问题了</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>ssh -T git<span class="hljs-variable">@github</span>.com<br></code></pre></td></tr></table></figure>
+
+<p>出现一个 hostname 提示输入 <code>yes</code> 回车，类似下面的提示就代表没问题了</p>
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/4.webp" srcset="/img/loading.gif" lazyload alt="本地连接GitHub完成"></p>
-<p>回到 GitHub，新建一个名为 <code>username.github.io</code> 的仓库，<code>username</code> 是你的 GitHub 用户名如果你不是 GitHub Pro 用户，这个仓库应该要设置为 Public 可见？我忘记了，那就设置为 Public 吧</p>
-<p>修改 Blog 目录下的 Hexo 全局配置文件 <code>_config.yml</code> 的 <code>deploy</code> 字段</p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5</th>
-<th>deploy:  <br> type: git  <br> repo:  <br> github: <a target="_blank" rel="noopener" href="https://github.com/username/username.github.io.git">https://github.com/username/username.github.io.git</a>  # username是Github用户名  <br> branch: master                                                # 部署到仓库的分支名</th>
-</tr>
-</thead>
-</table>
+<p>回到 GitHub，新建一个名为 <code>username.github.io</code> 的仓库，<code>username</code> 是你的 GitHub 用户名如果你不是 GitHub Pro 用户，这个仓库应该要设置为 Public 可见？我忘记了，那就设置为 Public 吧</p>
+<p>修改 Blog 目录下的 Hexo 全局配置文件 <code>_config.yml</code> 的 <code>deploy</code> 字段</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span><br><span class="hljs-symbol">    github:</span> https:<span class="hljs-comment">//github.com/username/username.github.io.git  # username是Github用户名</span><br><span class="hljs-symbol">  branch:</span> master                                                <span class="hljs-meta"># 部署到仓库的分支名</span><br></code></pre></td></tr></table></figure>
+
 <p><strong>安装 Hexo 推送 Git 插件</strong></p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4</th>
-<th># npm 安装和 yarn 安装二选一即可  <br>$ npm install hexo-deployer-git –save  <br># 或者  <br>$ yarn add hexo-deployer-git</th>
-</tr>
-</thead>
-</table>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-comment"># npm 安装和 yarn 安装二选一即可</span><br><span class="hljs-variable">$ </span>npm install hexo-deployer-git --save<br><span class="hljs-comment"># 或者</span><br><span class="hljs-variable">$ </span>yarn add hexo-deployer-git<br></code></pre></td></tr></table></figure>
+
 <p><strong>测试推送网站静态文件到 GitHub 仓库</strong></p>
-<table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4</th>
-<th>$ hexo clean  # 清除生成的静态文件和缓存  <br>$ hexo g      # 生成新的博客静态文件  <br>$ hexo s      # 启动本地预览  <br>$ hexo d      # 推送博客静态文件到远程仓库</th>
-</tr>
-</thead>
-</table>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo clean  <span class="hljs-comment"># 清除生成的静态文件和缓存</span><br><span class="hljs-variable">$ </span>hexo g      <span class="hljs-comment"># 生成新的博客静态文件</span><br><span class="hljs-variable">$ </span>hexo s      <span class="hljs-comment"># 启动本地预览</span><br><span class="hljs-variable">$ </span>hexo d      <span class="hljs-comment"># 推送博客静态文件到远程仓库</span><br></code></pre></td></tr></table></figure>
+
 <p><strong>如果每次推送都需要输入 GitHub 用户名密码</strong></p>
-<table>
-<thead>
-<tr>
-<th>1</th>
-<th>$ git config –global credential.helper store</th>
-</tr>
-</thead>
-</table>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">$ git config --<span class="hljs-keyword">global</span> credential.helper <span class="hljs-keyword">store</span><br></code></pre></td></tr></table></figure>
+
 <p>前面都没问题的话，现在你的博客应该推送到 GitHub 仓库了，如下图所示打开 GitHub 仓库的 Pages 服务，注意对应仓库的分支和路径</p>
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/5.webp" srcset="/img/loading.gif" lazyload alt="打开Pages服务"></p>
 <p><strong>GitHub Pages 绑定自定义域名</strong></p>
 <p>GitHub Pages 默认提供的是它免费提供的 github.io 的二级域名，如果你有一个自己的域名，绑定自己的域名当然更好了</p>
-<p>在 <code>Blog</code> 目录的 <code>source</code> 下新建一个名为 <code>CNAME</code> 的文件（无文件后缀，注意大小写），里面写上想要绑定的域名</p>
+<p>在 <code>Blog</code> 目录的 <code>source</code> 下新建一个名为 <code>CNAME</code> 的文件（无文件后缀，注意大小写），里面写上想要绑定的域名</p>
 <p><img src="https://www.dejavu.moe/imgs/posts/hexo-blog/6.webp" srcset="/img/loading.gif" lazyload alt="绑定自定义域名"></p>
-<p><code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code> 推送更新到 GitHub 仓库，在域名的 DNS 解析记录增加一条 CNAME 解析到 <code>username.github.io.</code> 的记录，稍等片刻 DNS 解析记录生效后，去 GitHub 仓库的 <code>Settings</code> 的 <code>Pages</code> 字段设置你的自定义域名并强制启用 HTTPS，现在你的博客应该可以通过 <code>https://your.domain</code> 访问了</p>
-<h2 id="升级-Hexo"><a href="#升级-Hexo" class="headerlink" title="升级 Hexo"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%8D%87%E7%BA%A7-Hexo" title="升级 Hexo"></a>升级 Hexo</h2><p>Hexo 由热爱开源的开发者们更新维护，如果 Hexo 发布了新版本，升级也很简单</p>
-<h3 id="对于-npm-安装的-Hexo"><a href="#对于-npm-安装的-Hexo" class="headerlink" title="对于 npm 安装的 Hexo"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%AF%B9%E4%BA%8E-npm-%E5%AE%89%E8%A3%85%E7%9A%84-Hexo" title="对于 npm 安装的 Hexo"></a>对于 npm 安装的 Hexo</h3><table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5  <br>6  <br>7  <br>8  <br>9  <br>10  <br>11  <br>12  <br>13</th>
-<th># 查看hexo版本信息  <br>$ hexo -v  <br># 全局升级 hexo-cli  <br>$ npm install hexo-cli -g  <br># 检查升级  <br>$ npm install -g npm-check  <br>$ npm-check  <br># 开始升级  <br>$ npm install -g npm-check-updates  <br>$ npm-upgrade  <br># 更新全局依赖  <br>$ npm update -g  <br>$ npm update –save</th>
-</tr>
-</thead>
-</table>
-<h3 id="对于-yarn-安装的-Hexo"><a href="#对于-yarn-安装的-Hexo" class="headerlink" title="对于 yarn 安装的 Hexo"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%AF%B9%E4%BA%8E-yarn-%E5%AE%89%E8%A3%85%E7%9A%84-Hexo" title="对于 yarn 安装的 Hexo"></a>对于 yarn 安装的 Hexo</h3><table>
-<thead>
-<tr>
-<th>1  <br>2  <br>3  <br>4  <br>5  <br>6  <br>7  <br>8  <br>9  <br>10  <br>11  <br>12  <br>13  <br>14</th>
-<th># 查看hexo版本  <br>$ hexo -v  <br># 全局升级hexo-cli  <br>$ yarn global add hexo-cli  <br># yarn添加 npm-check-updates  <br>$ yarn global add npm-check-updates  <br># 升级全部依赖，yarn.lock和package.json也会被更新  <br>$ ncu –upgrade –upgrade All  <br># 全局更新  <br>$ yarn upgrade –latest  <br># 安装依赖  <br>$ yarn install  <br># 或者只需要一步代替上面yarn更新hexo步骤（忽略package.json指定的版本范围所有的都将被升级到最新版）  <br>$ yarn upgrade-interactive –latest</th>
-</tr>
-</thead>
-</table>
-<h2 id="Hexo-之禅"><a href="#Hexo-之禅" class="headerlink" title="Hexo 之禅"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#Hexo-%E4%B9%8B%E7%A6%85" title="Hexo 之禅"></a>Hexo 之禅</h2><p>在上面的步骤完成后，你可能对默认的主题不满意，Hexo 目前有上百个主题，其中绝大部分都是免费开源并且长期有作者维护的，你可以在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo-Theme</a> 和 <a target="_blank" rel="noopener" href="https://github.com/search?q=hexo-theme">Github 搜索</a> 查看、挑选你喜欢的主题（当然大佬也可以自己写 😄 ）</p>
-<p><strong>👿 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/">博主</a> 忠告：</strong>Hexo 主题的挑选和域名的挑选一样重要，请一定要慎重考虑！</p>
+<p><code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code> 推送更新到 GitHub 仓库，在域名的 DNS 解析记录增加一条 CNAME 解析到 <code>username.github.io.</code> 的记录，稍等片刻 DNS 解析记录生效后，去 GitHub 仓库的 <code>Settings</code> 的 <code>Pages</code> 字段设置你的自定义域名并强制启用 HTTPS，现在你的博客应该可以通过 <code>https://your.domain</code> 访问了</p>
+<h2 id="升级-Hexo"><a href="#升级-Hexo" class="headerlink" title="升级 Hexo"></a>升级 Hexo</h2><p>Hexo 由热爱开源的开发者们更新维护，如果 Hexo 发布了新版本，升级也很简单</p>
+<h3 id="对于-npm-安装的-Hexo"><a href="#对于-npm-安装的-Hexo" class="headerlink" title="对于 npm 安装的 Hexo"></a>对于 npm 安装的 Hexo</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-comment"># 查看hexo版本信息</span><br>$ hexo -v<br><span class="hljs-comment"># 全局升级 hexo-cli</span><br>$ <span class="hljs-built_in">npm</span> install hexo-cli -g<br><span class="hljs-comment"># 检查升级</span><br>$ <span class="hljs-built_in">npm</span> install -g <span class="hljs-built_in">npm</span>-check<br>$ <span class="hljs-built_in">npm</span>-check<br><span class="hljs-comment"># 开始升级</span><br>$ <span class="hljs-built_in">npm</span> install -g <span class="hljs-built_in">npm</span>-check-updates<br>$ <span class="hljs-built_in">npm</span>-upgrade<br><span class="hljs-comment"># 更新全局依赖</span><br>$ <span class="hljs-built_in">npm</span> update -g<br>$ <span class="hljs-built_in">npm</span> update --save<br></code></pre></td></tr></table></figure>
+
+<h3 id="对于-yarn-安装的-Hexo"><a href="#对于-yarn-安装的-Hexo" class="headerlink" title="对于 yarn 安装的 Hexo"></a>对于 yarn 安装的 Hexo</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-comment"># 查看hexo版本</span><br><span class="hljs-variable">$ </span>hexo -v<br><span class="hljs-comment"># 全局升级hexo-cli</span><br><span class="hljs-variable">$ </span>yarn global add hexo-cli<br><span class="hljs-comment"># yarn添加 npm-check-updates</span><br><span class="hljs-variable">$ </span>yarn global add npm-check-updates<br><span class="hljs-comment"># 升级全部依赖，yarn.lock和package.json也会被更新</span><br><span class="hljs-variable">$ </span>ncu --upgrade --upgrade All<br><span class="hljs-comment"># 全局更新</span><br><span class="hljs-variable">$ </span>yarn upgrade --latest<br><span class="hljs-comment"># 安装依赖</span><br><span class="hljs-variable">$ </span>yarn install<br><span class="hljs-comment"># 或者只需要一步代替上面yarn更新hexo步骤（忽略package.json指定的版本范围所有的都将被升级到最新版）</span><br><span class="hljs-variable">$ </span>yarn upgrade-interactive --latest<br></code></pre></td></tr></table></figure>
+
+<h2 id="Hexo-之禅"><a href="#Hexo-之禅" class="headerlink" title="Hexo 之禅"></a>Hexo 之禅</h2><p>在上面的步骤完成后，你可能对默认的主题不满意，Hexo 目前有上百个主题，其中绝大部分都是免费开源并且长期有作者维护的，你可以在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo-Theme</a> 和 <a target="_blank" rel="noopener" href="https://github.com/search?q=hexo-theme">Github 搜索</a> 查看、挑选你喜欢的主题（当然大佬也可以自己写 😄 ）</p>
+<p><strong>👿 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/">博主</a> 忠告：</strong>Hexo 主题的挑选和域名的挑选一样重要，请一定要慎重考虑！</p>
 <p>请看 《 Hexo 之禅 》：</p>
 <ul>
 <li>折腾主题是Hexo的最大原罪。专注于创作，而不是令人眼花缭乱的效果。名家之博，不假于主题之花哨，而得知于内容；</li>
 <li>样式千万种，花哨莫去求。主题若彩虹，遇上方知有；</li>
-<li>有问题记得首先去查看 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官方文档</a>，善用搜索引擎。没有人有义务的无条件帮你；</li>
+<li>有问题记得首先去查看 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">官方文档</a>，善用搜索引擎。没有人有义务的无条件帮你；</li>
 <li>善于分享，赠人玫瑰手有余香。写作是检索你对知识理解程度的手段，而分享是你继续创作的动力；</li>
 <li>不忘初心，方得始终。</li>
 </ul>
-<h2 id="引伸阅读"><a href="#引伸阅读" class="headerlink" title="引伸阅读"></a><a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-blog/#%E5%BC%95%E4%BC%B8%E9%98%85%E8%AF%BB" title="引伸阅读"></a>引伸阅读</h2><ul>
-<li><p>在搭建过程中由于网络原因出错？🔖 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/git-npm-yarn-proxy/">使用本地代理给 Git 和 NPM 加速</a></p>
-</li>
-<li><p>Hexo 的文章链接很乱？看这 👉 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-permalinks/">优化 Hexo 的永久链接</a></p>
-</li>
-<li><p>Hexo 怎么做 SEO？🔎 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-seo/">Hexo SEO 优化的基本套路</a></p>
-</li>
-<li><p>寻找 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Hexo-NexT 主题</a> 的美化教程？🎨 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-next-beautify/">Hexo NexT 主题 v8.2.0 美化教程</a></p>
-</li>
+<h2 id="引伸阅读"><a href="#引伸阅读" class="headerlink" title="引伸阅读"></a>引伸阅读</h2><ul>
+<li>在搭建过程中由于网络原因出错？🔖 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/git-npm-yarn-proxy/">使用本地代理给 Git 和 NPM 加速</a></li>
+<li>Hexo 的文章链接很乱？看这 👉 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-permalinks/">优化 Hexo 的永久链接</a></li>
+<li>Hexo 怎么做 SEO？🔎 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-seo/">Hexo SEO 优化的基本套路</a></li>
+<li>寻找 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Hexo-NexT 主题</a> 的美化教程？🎨 <a target="_blank" rel="noopener" href="https://www.dejavu.moe/posts/hexo-next-beautify/">Hexo NexT 主题 v8.2.0 美化教程</a></li>
 </ul>
 
             </div>
